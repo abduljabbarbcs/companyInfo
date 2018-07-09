@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+    {% load staticfiles %}
+        <app-root></app-root>
+        <script type="text/javascript" src="{% static '/dist/inline.bundle.js' %}"></script>
+        <script type="text/javascript" src="{% static  '/dist/polyfills.bundle.js' %}" ></script>
+        <script type="text/javascript" src="{% static  '/dist/styles.bundle.js' %}"></script>
+        <script type="text/javascript" src="{% static  '/dist/vendor.bundle.js' %}"></script>
+        <script type="text/javascript" src="{% static  '/dist/main.bundle.js' %}"></script>
+
+{% endblock %}

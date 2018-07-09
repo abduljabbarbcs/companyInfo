@@ -1,0 +1,25 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th *ngIf="isLogIn"> Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let entry of data ">
+        <td><span *ngIf="!entry.edit">{{ entry.name }}</span>
+            <input *ngIf="entry.edit" type="text" [(ngModel)]="entry.name"/>
+        </td>
+        <td>
+        <span *ngIf="!entry.edit">{{ entry.description  }}</span>
+            <input *ngIf="entry.edit" type="text" [(ngModel)]="entry.description"/></td>
+        <td *ngIf="isLogIn">
+            <button type="button" *ngIf="!entry.edit" class="btn btn-success" (click)="entry.edit=true">Edit</button>
+            <button type="button" *ngIf="entry.edit" class="btn btn-primary" (click)="editEntry(entry)">Save</button>
+            <button type="button" *ngIf="entry.edit" class="btn btn-secondary"(click)="entry.edit=false">Cancel</button>
+
+        </td>
+    </tr>
+    </tbody>
+</table>

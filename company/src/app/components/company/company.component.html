@@ -1,0 +1,74 @@
+<app-header [islogin]="true"></app-header>
+<div class="container-fluid">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" [ngClass]="{active: tab=='project'}"  role="tab"  aria-selected="true" (click)="tab='project'">Projects</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  [ngClass]="{active: tab=='client'}" data-toggle="tab" role="tab"  aria-selected="false" (click)="tab='client'">Clients</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [ngClass]="{active: tab=='employee'}" data-toggle="tab"  role="tab" aria-selected="false" (click)="tab='employee'">Employees</a>
+  </li>
+</ul>
+<div class="tab-content" >
+  <div class="tab-pane fade" [ngClass]="{show: tab=='project',active: tab=='project'}" role="tabpanel" >
+      <button type="button" class="btn btn-success add" *ngIf="!showAddForm" (click)="showAddForm=true">Add Project</button>
+      <form *ngIf="showAddForm">
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control"  [(ngModel)]="project.name" name="name" placeholder="Name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control"  [(ngModel)]="project.description" name="description" placeholder="Description">
+            </div>
+              <div class="col">
+              <button type="button" class="btn btn-primary" (click)="saveProject()">Save</button>
+              <button type="button" class="btn btn-secondary" (click)="showAddForm=false">Cancel</button>
+            </div>
+          </div>
+        </form>
+      <app-custom-table [data]="projects" (edit)="updateProject($event)" [isLogIn]="true"></app-custom-table>
+  </div>
+  <div class="tab-pane fade" [ngClass]="{show: tab=='client',active: tab=='client'}" role="tabpanel" >
+      <button type="button" class="btn btn-success add" *ngIf="!showAddForm" (click)="showAddForm=true">Add Client</button>
+      <form *ngIf="showAddForm">
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" [(ngModel)]="client.name" name="name" placeholder="Name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control"  [(ngModel)]="client.description" name="description" placeholder="Description">
+            </div>
+              <div class="col">
+              <button type="button" class="btn btn-primary" (click)="saveClient()">Save</button>
+              <button type="button" class="btn btn-secondary" (click)="showAddForm=false">Cancel</button>
+            </div>
+          </div>
+        </form>
+      <app-custom-table [data]="clients" (edit)="updateClient($event)" [isLogIn]="true"></app-custom-table>
+  </div>
+  <div class="tab-pane fade" [ngClass]="{show: tab=='employee',active: tab=='employee'}" role="tabpanel" >
+      <button type="button" class="btn btn-success add" *ngIf="!showAddForm" (click)="showAddForm=true">Add Employee</button>
+      <form *ngIf="showAddForm">
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control"  [(ngModel)]="employee.name" name="name" placeholder="Name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control"  [(ngModel)]="employee.description" name="description" placeholder="Description">
+            </div>
+              <div class="col">
+              <button type="button" class="btn btn-primary" (click)="saveEmployee()">Save</button>
+              <button type="button" class="btn btn-secondary" (click)="showAddForm=false">Cancel</button>
+            </div>
+          </div>
+        </form>
+      <app-custom-table [data]="employees"  (edit)="updateEmployee($event)" [isLogIn]="true"></app-custom-table>
+  </div>
+</div>
+</div>
+
+
+
+

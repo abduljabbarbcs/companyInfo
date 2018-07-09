@@ -1,0 +1,26 @@
+<app-header [islogin]="false"></app-header>
+<div class="container-fluid"><ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link" [ngClass]="{active: tab=='project'}"  role="tab"  aria-selected="true" (click)="tab='project'">Projects</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  [ngClass]="{active: tab=='client'}" data-toggle="tab" role="tab"  aria-selected="false" (click)="tab='client'">Clients</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [ngClass]="{active: tab=='employee'}" data-toggle="tab"  role="tab" aria-selected="false" (click)="tab='employee'">Employees</a>
+  </li>
+</ul>
+<div class="tab-content" >
+  <div class="tab-pane fade" [ngClass]="{show: tab=='project',active: tab=='project'}" role="tabpanel" >
+    <app-custom-table [data]="projects" [isLogIn]="false"></app-custom-table>
+  </div>
+  <div class="tab-pane fade" [ngClass]="{show: tab=='client',active: tab=='client'}" role="tabpanel" >
+      <app-custom-table [data]="clients" [isLogIn]="false"></app-custom-table>
+  </div>
+  <div class="tab-pane fade" [ngClass]="{show: tab=='employee',active: tab=='employee'}" role="tabpanel" >
+      <app-custom-table [data]="employees" [isLogIn]="false"></app-custom-table>
+  </div>
+</div>
+</div>
+
+
