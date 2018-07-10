@@ -15,7 +15,7 @@ api_router.register(r'employee/(?P<id>\d{1,})/', CompanyEmployeeViewSet)
 
 urlpatterns = [
     # API URLs
-    url(r'^api/v1/', include(api_router.urls)),
+    url(r'^api/v1/', include(api_router.urls, namespace='company')),
 
     # JWT Authentication URLs
     url(r'^api/v1/auth/$', obtain_jwt_token),

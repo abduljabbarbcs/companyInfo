@@ -141,3 +141,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+print(BASE_DIR)
+FIXTURE_DIRS = (BASE_DIR + '/company/common/fixtures/',)
